@@ -62,7 +62,7 @@ function init3D() {
 
   const width = 30;
   const height = 30;
-  const intensity = 7.5;
+  const intensity = 5;
   const rectLight1 = new THREE.RectAreaLight(0xffffff, intensity, width, height);
   rectLight1.position.set(30.8558, -4.94707, -11.339);
   rectLight1.rotation.set(
@@ -79,7 +79,7 @@ function init3D() {
 
   const width2 = 10;
   const height2 = 10;
-  const intensity2 = 10;
+  const intensity2 = 15;
   const rectLight2 = new THREE.RectAreaLight(0xffffff, intensity2, width2, height2);
   rectLight2.position.set(24.3479, -4.94707, 7.97078);
   rectLight2.rotation.set(
@@ -90,13 +90,13 @@ function init3D() {
 
   rectLight2.lookAt(0, -10, -2);
 
-  // scene.add(rectLight2);
+  scene.add(rectLight2);
 
   //  3rd light
 
   const width3 = 10;
   const height3 = 10;
-  const intensity3 = 10;
+  const intensity3 = 15;
   const rectLight3 = new THREE.RectAreaLight(0xffffff, intensity3, width3, height3);
   rectLight3.position.set(24.5512, 20.6812, 33.0485);
   rectLight3.rotation.set(
@@ -105,18 +105,18 @@ function init3D() {
     THREE.MathUtils.degToRad(269.862)
   );
 
-  rectLight3.lookAt(0, -10, -2);
+  rectLight3.lookAt(20, -10, 2);
 
-  // scene.add(rectLight3);
+  scene.add(rectLight3);
 
   // const rectLight1Helper = new RectAreaLightHelper(rectLight1);
   // rectLight1.add(rectLight1Helper);
 
-  // const rectLight3Helper = new RectAreaLightHelper(rectLight3);
-  // rectLight3.add(rectLight3Helper);
-
   // const rectLight2Helper = new RectAreaLightHelper(rectLight2);
   // rectLight2.add(rectLight2Helper);
+
+  const rectLight3Helper = new RectAreaLightHelper(rectLight3);
+  rectLight3.add(rectLight3Helper);
 
   // Add Axes Helper
 
@@ -154,7 +154,7 @@ function init3D() {
     rectLight3.position.x = radius * Math.cos(angle);
     rectLight3.position.z = radius * Math.sin(angle);
 
-    rectLight3.lookAt(0, -10, -2);
+    rectLight3.lookAt(-20, 120, 100);
 
     controls.update();
     if (mixer) mixer.update(clock.getDelta());
